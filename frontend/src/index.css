@@ -1,1 +1,191 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  WebX360 — "Signal" design system
+  Ink-black + signal-coral for the student-facing product,
+  a deep indigo reserved for the recruiter/admin workspace.
+  Display type is Fraunces (serif, editorial); UI/body type is Inter.
+*/
+
+@layer base {
+  :root {
+    --background: 40 14% 97%;
+    --foreground: 222 30% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 30% 11%;
+
+    --primary: 13 92% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 93%;
+    --secondary-foreground: 222 30% 11%;
+
+    --muted: 40 10% 94%;
+    --muted-foreground: 220 9% 42%;
+
+    --accent: 231 48% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 78% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 89%;
+    --input: 220 14% 89%;
+    --ring: 13 92% 56%;
+
+    --radius: 0.625rem;
+
+    --success: 152 60% 32%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 48%;
+    --warning-foreground: 0 0% 100%;
+
+    /* ink: the deep navy-black used for footer / admin chrome / hero-dark moments */
+    --ink: 222 47% 8%;
+    --ink-foreground: 40 20% 95%;
+    --ink-muted: 222 20% 62%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(13 92% 56%), hsl(2 78% 50%));
+    --card-shadow: 0 1px 3px 0 hsl(222 30% 11% / 0.06), 0 1px 2px -1px hsl(222 30% 11% / 0.06);
+    --card-shadow-hover: 0 16px 32px -8px hsl(13 92% 56% / 0.18), 0 6px 12px -6px hsl(222 30% 11% / 0.08);
+    --elevated-shadow: 0 24px 60px -16px hsl(222 47% 8% / 0.35);
+
+    --font-heading: 'Newsreader', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 13 92% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 35% 16%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 13 92% 56%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 40 20% 95%;
+    --card: 222 40% 12%;
+    --card-foreground: 40 20% 95%;
+    --popover: 222 40% 12%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 13 92% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 222 30% 18%;
+    --muted-foreground: 222 15% 65%;
+    --accent: 231 55% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 4 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 13 92% 58%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 13 92% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 16%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 13 92% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+  .elevated-shadow {
+    box-shadow: var(--elevated-shadow);
+  }
+  .bg-ink {
+    background-color: hsl(var(--ink));
+  }
+  .text-ink {
+    color: hsl(var(--ink));
+  }
+  .text-ink-foreground {
+    color: hsl(var(--ink-foreground));
+  }
+  .text-ink-muted {
+    color: hsl(var(--ink-muted));
+  }
+  .border-ink {
+    border-color: hsl(var(--ink) / 0.12);
+  }
+  .font-display {
+    font-family: var(--font-heading);
+  }
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Guards against Radix leaving the body locked after a dialog/menu closes */
+
+/* 1. Fixes the mouse clicking being disabled */
+body {
+    pointer-events: auto !important;
+}
+
+/* 2. Fixes the scroll being frozen */
+body[data-scroll-locked] {
+    overflow: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0px !important;
+}
+
+/* 3. Your specific fix for the Radix viewport */
+[data-radix-scroll-area-viewport] {
+    display: flex !important;
+}

@@ -11,6 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+/* JI BABUJI: This forces the body to be scrollable even if the library tries to lock it */
+body {
+    pointer-events: auto !important;
+    overflow: auto !important;
+}
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
