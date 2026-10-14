@@ -1,11 +1,4 @@
-Webx360 Job portal website
-is a comprehensive, professional `README.md` template tailored specifically for your **Webx** MERN stack job portal project. It covers everything recruiters and developers look for: project overview, tech stack, directory structure, features, and setup instructions.
 
-You can copy this, paste it into a `README.md` file in the root of your repository, and customize any specific port numbers or URLs if needed.
-
----
-
-```markdown
 # Webx - Modern Job Portal Platform
 
 **Webx** is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) job portal application designed to bridge the gap between job seekers and employers. It features secure authentication, role-based access control (RBAC), and a responsive user interface for seamless job searching and management.
